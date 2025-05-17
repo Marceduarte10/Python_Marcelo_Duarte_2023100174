@@ -1,21 +1,21 @@
-#!/usr/bin/env python3
-from flask import Flask
-from login import login
+from flask import Blueprint, request, jsonify
 
-app = Flask(__name__)
+login = Blueprint('login', __name__)
 
-##servicios rest
-app.register_blueprint(login)
+@login.route('/login', methods=['POST'])
+def llamarServicioSet():
+    user = request.json.get('user')
+    password = request.json.get('password')
 
-@app.route('/', methods=['GET'])
-def hello ():
-    return 'Hola mundo'
+    codRes, menRes, accion = inicializarVariables(user, password) # type: ignore
 
-if __name__ == "__main__":
-    app.run(host = '0.0.0.0', debug = True, port = 5001)
-    app.run(debug = True)
-
-
+    salida = {
+        'codRes' : codRes,
+        'menRes' : menRes,
+        'usuario' : user,
+        'accion' : accion
+    }
+    return jsonify (salida)
 
     def inicializarVariables(user, password):
         userLocal = "mduarte"
@@ -23,7 +23,7 @@ if __name__ == "__main__":
         codRes = 'SIN_ERROR'
         menRes = 'OK'
 
-        try:
+        try: 
             print("Verificar login")
             if password == passLocal and user == userLocal:
                 print("Usuario y contrasela OK")
@@ -36,10 +36,10 @@ if __name__ == "__main__":
 
 
 except Exception as e:
-print("ERROR", str(e))
-codRes = 'ERROR'
-menRes = 'Msg: ' + str(e)
-accion = "Eror interno"
+    print("ERROR", str(e))
+    codRes = 'ERROR'
+    menRes = 'Msg: ' + str(e)
+    accion = "Eror interno"
 
 return codRes, menRes, accion
  
