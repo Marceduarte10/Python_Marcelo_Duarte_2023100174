@@ -7,7 +7,7 @@ def llamarServicioSet():
     user = request.json.get('user')
     password = request.json.get('password')
 
-    codRes, menRes, accion = inicializarVariables(user, password) # type: ignore
+    codRes, menRes, accion = inicializarVariables(user, password) 
 
     salida = {
         'codRes' : codRes,

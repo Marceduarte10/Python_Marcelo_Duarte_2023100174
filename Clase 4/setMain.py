@@ -21,7 +21,7 @@ if __name__ =="__main__":
     ##app.run(host = '127.0.0.1', debug = True, port = 5000)
     #Linea comentada: ejecutaria el servidor localmente solo accesible desde la misma maquina
 
-    app.run(host = '0.0.0.0', debug = True, port = 5000)
+    app.run(host = '0.0.0.0', debug = True, port = 8080)
     #Ejecuta la app en el host 0.0.0.0, lo cual la hace accesible desde otras maquinas en la red
     #El modo debug permite ver errores detallados y reinicia el servidor al detectar cambios
 

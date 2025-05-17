@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./Clase 5/mi_api/app.py"
+    ]
+}
