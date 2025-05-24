@@ -3,7 +3,7 @@ from flask import Blueprint, request, jsonify
 
 cliente_bp = Blueprint('cliente', __name__)
 
-# Base de datos simulada
+# Base de datos simulada mi CI 5213457
 CLIENTES = {
             "5213457": 
                 {
