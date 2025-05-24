@@ -19,8 +19,8 @@ def llamarServicioSet():
     return jsonify(salida)
 
 def inicializarVariables(user, password):
-    userLocal = "dcaballero"
-    passLocal = "unida123"
+    userLocal = "mduarte"
+    passLocal = "10071810"
     codRes = 'SIN_ERROR'
     menRes = 'OK'
     
